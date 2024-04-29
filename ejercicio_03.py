@@ -81,9 +81,10 @@ print(type(my_dict))
 def my_agenda():
 
     def agree_contact():
+        phone = input('Introduce el numero de contacto: ')
         if phone.isdigit() and len(phone) > 0 and len(phone) <= 9:
             agenda[name] = phone
-            print('Contacto agregado exitosamente !!!')
+            print('Contacto actualizado correctamente !!!')
         else:
             print('Debes introducir un numero menor a 9 digitos')
 
@@ -109,21 +110,13 @@ def my_agenda():
                     print(f'El contacto {name} no existe, favor de agregarlo')
             case "2":
                 name = input('Introduce el nombre del contacto a agregar: ')
-                phone = input('Introduce el numero de contacto: ')
-                if phone.isdigit() and len(phone) > 0 and len(phone) <= 9:
-                    agenda[name] = phone
-                    print('Contacto agregado exitosamente !!!')
-                else:
-                    print('Debes introducir un numero menor a 9 digitos')
+                agree_contact()
             case "3":
                 name = input('Introduce el nombre de contacto a actualizar: ')
                 if name in agenda:
-                    phone = input('Introduce el numero de contacto: ')
-                    if phone.isdigit() and len(phone) > 0 and len(phone) <= 9:
-                        agenda[name] = phone
-                        print('Contacto actualizado correctamente !!!')
-                    else:
-                        print('Debes introducir un numero menor a 9 digitos')
+                    agree_contact()
+                else:
+                    print('Debes introducir un numero menor a 9 digitos')
             case "4":
                 name = input('Ingresa el contacto a eliminar: ')
                 if name in agenda:
